@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "electron": "^36.2.1",
+    "mongoose": "^8.15.0"
+  },
+  "name": "micangas",
+  "version": "1.0.0",
+  "description": "Loja de miçangas",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caallop/micangas.git"
+  },
+  "keywords": [
+    "miçangas",
+    "controle",
+    "de",
+    "estoque",
+    "OS",
+    "ordem",
+    "de",
+    "serviço"
+  ],
+  "author": "Guilherme Rosa Lopes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caallop/micangas/issues"
+  },
+  "homepage": "https://github.com/caallop/micangas#readme"
+}
