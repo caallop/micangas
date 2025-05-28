@@ -8,7 +8,7 @@ const { conectar, desconectar } = require("./database.js");
 //===================== janela inicial======================== 
 const createWindow = () => {
   const win = new BrowserWindow({
-    nativeTheme,themeSource: "dark", //escolher o tema do projeto
+    nativeTheme,themeSource: "light", //escolher o tema do projeto
     width: 800,
     height: 600,
     webPreferences: {

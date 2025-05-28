@@ -33,6 +33,10 @@ api.dbStatus((event, message) => {
 
 });
 
+function teste() {
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA")
+}
+
 function clientLogin() {
   api.clientLogin()
 }
