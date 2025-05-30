@@ -40,3 +40,17 @@ function teste() {
 function clientLogin() {
   api.clientLogin()
 }
+
+api.listOrders();
+
+api.renderNotes((event, notes) => {
+  const renderNotes = JSON.parse(notes);
+  arrayNotes = renderNotes;
+  arrayNotes.forEach((n) => {
+    list.innerHTML += `
+      <p id="code">${n._id}</p>
+      <p>${n.nome}</p>
+      <p id="data">${n.data}</p>
+      </li>`;
+  });
+});
