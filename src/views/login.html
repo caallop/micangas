@@ -1,36 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body>
-<style>
-  th,
-  tr,
-  table {
-    border: 1px solid;
-    
-    
-  }
-</style>
-<div class="container ">
-  <table class="max-w-100%">
-    <tr class="bg-sky-700">
-      <th class="p-2">LOGIN DE CLIENTE AAAAAAAAA</th>
-      <th class="p-2">ORDEM DE SERVIÇO EM ABERTO</th>
-      <th class="p-2">ORDEM DE SERVIÇO CONCLUIDAS aaaaaaaaaa</th>
-    </tr>
-    <tr class=" bg-sky-400">
-      <th class="p-2"><button onclick="clientLogin()"></button></th>
-      <th class="p-2"><button></button></th>
-      <th class="p-2"><button id=></button></th>
-    </tr>
-  </table>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Cliente</title>
+  <link rel="stylesheet" href="../public/css/login.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-white min-h-screen p-4">
+
+  <!-- BUSCA -->
+  <form id="frmSearchClient" class=" greenFormat max-w-4xl mx-auto mb-6">
+    <div class="flex flex-col md:flex-row gap-4">
+      <input id="buscarCli" type="search" placeholder="Buscar cliente..." class="flex-1 p-2 rounded text-black" />
+      <button type="button" onclick="searchClient()" id="buscar" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+        Buscar
+      </button>
+    </div>
+  </form>
+
+  <hr class="mb-6">
+
+  <!-- FORMULÁRIO -->
+  <section class="max-w-4xl mx-auto">
+    <form id="frmCadastro" class="space-y-6">
+
+      <!-- ID Oculto -->
+      <input type="text" id="id" class="hidden" />
+
+   <!-- Email e Telefone -->
+<div class="grid md:grid-cols-3 gap-4">
+  <div class="greenFormat">
+    <label for="cadEmail" class="block">Email*</label>
+    <input type="email" id="cadEmail" required class="w-full p-2 rounded text-black" />
+  </div>
+  <div class="greenFormat">
+    <label for="cadTel" class="block">Telefone</label>
+    <input type="text" id="cadTel" value="+55(11)" class="w-full p-2 rounded text-black" />
+  </div>
 </div>
 
-  </body>
+<!-- Nome, CPF e Sexo -->
+<div class="grid md:grid-cols-3 gap-4">
+  <div class="md:col-span-1 md:col-span-1.5 greenFormat">
+    <label for="cadNome" class="block">Nome Completo*</label>
+    <input type="text" id="cadNome" required class="w-full p-2 rounded text-black" />
+  </div>
+  <div class="greenFormat">
+    <label for="cadCpf" class="block">CPF</label>
+    <div id="cpfNotificacao" class="text-red-400 text-sm hidden">CPF inválido, tente novamente</div>
+    <input type="text" maxlength="15" id="cadCpf" onblur="testaCPF()" class="w-full p-2 rounded text-black" />
+  </div>
+</div>
+
+<!-- Endereço -->
+<div class="grid md:grid-cols-4 gap-4">
+  <div class="greenFormat">
+    <label for="cadCep" class="block">CEP</label>
+    <input type="text" id="cadCep" onblur="buscarEndereco()" class="w-full p-2 rounded text-black" />
+  </div>
+  <div class="greenFormat">
+    <label for="cadBairro" class="block">Bairro</label>
+    <input type="text" id="cadBairro" class="w-full p-2 rounded text-black" />
+  </div>
+  <div class="greenFormat">
+    <label for="cadLogra" class="block">Logradouro</label>
+    <input type="text" id="cadLogra" class="w-full p-2 rounded text-black" />
+  </div>
+</div>
+
+<div class="grid md:grid-cols-4 gap-4">
+  <div class="greenFormat">
+    <label for="cadNumb" class="block">Número</label>
+    <input type="text" id="cadNumb" class="w-full p-2 rounded text-black" />
+  </div>
+  <div class="greenFormat">
+    <label for="cadComp" class="block">Complemento</label>
+    <input type="text" id="cadComp" class="w-full p-2 rounded text-black" />
+  </div>
+    </select>
+  </div>
+</div>
+
+      <!-- BOTÕES -->
+      <div class="flex flex-wrap gap-4 mt-6">
+        <button type="submit" id="btnCreate" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white">
+          Salvar
+        </button>
+        <button type="submit" id="btnUpdate" disabled class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded text-white">
+          Editar
+        </button>
+        <button type="button" id="btnDelete" disabled class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white">
+          Excluir
+        </button>
+        <button type="reset" onclick="resetForm()" class="bg-gray-500 hover:bg-gray-600 px-4 py-2 rounded text-white">
+          Limpar
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <script src="rendererCadastro.js"></script>
+</body>
 </html>

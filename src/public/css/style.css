@@ -2,13 +2,13 @@
 @media (prefers-color-scheme: dark) {
   body {
     color: white;
-    background-color: #9defc0;
+    background-color: #71f3a9;
   }
 }
 
 #rodape {
   align-items: center;
-  background-color: #6fda99;
+  background-color: #0e9143;
   width: 770px;
   margin-left: 7px;
   height: 32px;
@@ -27,11 +27,11 @@ footer p {
   font-size: 1.2em;
 }
 #graphics {
-  background-color: #6fda99;
+  background-color: #0e9143;
   width: 509px;
-  margin-top: 6px;
+  margin-top: 5px;
   right: 7px;
-  height: 430px;
+  height: 431px;
   display: flex;
   position: fixed;
   padding-left: 40%;
@@ -39,11 +39,11 @@ footer p {
 }
 
 #rolage-table {
-  background-color: #6fda99;
+  background-color: #0e9143;
   width: 255px;
-  margin-top: 6px;
+  margin-top: 5px;
   margin-left: 7px;
-  height: 430px;
+  height: 431px;
   display: flex;
   position: fixed;
   border-radius: 15px;
@@ -51,7 +51,7 @@ footer p {
 }
 
 #buttons {
-  background-color: #6fda99;
+  background-color: #0e9143;
   width: 770px;
   margin-left: 7px;
   height: 54px;
@@ -65,8 +65,20 @@ footer p {
 #informations {
 font-size: 0.9em;
 }
+th, td {
+  padding: 0.5rem; /* reduza se necessário */
+  line-height: 1.2; /* ou menor */
+  vertical-align: middle;
+}
+#tableInformations{
+  
+}
 #leftSlide{
-  color: #2C5F8A;
+  color: #fcfafa;
+}
+
+.whitetext{
+  color: #fcfafa;
 }
 
 #code{

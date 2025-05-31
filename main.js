@@ -128,17 +128,20 @@ const template = [
 //crud read
 
 ipcMain.on("list-orders", async (event) => {
-  console.log("list orders")
-  console.log("list orders")
-  console.log("list orders")
-  console.log(".............")
-  console.log(".............")
-  console.log(".............")
   try {
-    console.log("try cathc")
-    console.log("try cathc")
-    console.log("try cathc")
-    const notes = await noteModel.find();
-    event.reply("render-notes", JSON.stringify(notes));
-  } catch (error) {}
+
+    const order = await orderModel.find();
+    console.log("===================")
+    console.log("===================")
+    console.log("===================")
+    console.log("===================")
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    event.reply("render-orders", JSON.stringify(order));
+  } catch (error) {
+    console.log(error)
+  }
 });
