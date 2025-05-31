@@ -1,60 +1,82 @@
 @charset "UTF-8";
 @media (prefers-color-scheme: dark) {
-    body {
-      color: white;
-    }
+  body {
+    color: white;
+    background-color: #71f3a9;
   }
- 
-  
-footer {
-  width: 100%;
+}
+
+#rodape {
+  align-items: center;
+  background-color: #0e9143;
+  width: 770px;
+  margin-left: 7px;
   height: 32px;
+  font-size: 0.9em;
   display: flex;
   justify-content: space-between;
   padding-bottom: 2px;
-  padding-left: 4px;
+  padding-left: 8px;
   position: fixed;
-  bottom: 0;
+  bottom: 3px;
+  border-radius: 12px;
 }
 
 footer p {
   color: black;
   font-size: 1.2em;
 }
+#graphics {
+  background-color: #0e9143;
+  width: 509px;
+  margin-top: 5px;
+  right: 7px;
+  height: 431px;
+  display: flex;
+  position: fixed;
+  padding-left: 40%;
+  border-radius: 15px;
+}
 
-
-
-button {
-    width: 128px;
-    height: 128px;
-    left: 200px;
-    border: none;
-    background-image: url("../img/login.png");
-    border-radius: 30px;
-  }
-
-button:hover
-{
-    cursor: pointer;
+#rolage-table {
+  background-color: #0e9143;
+  width: 255px;
+  margin-top: 5px;
+  margin-left: 7px;
+  height: 431px;
+  display: flex;
+  position: fixed;
+  border-radius: 15px;
+  overflow-y: auto;
 }
 
 #buttons {
-  width: 500px;
-  height: 20px;
-  padding-bottom: 20px;
-  padding-left: 280px;
+  background-color: #0e9143;
+  width: 770px;
+  margin-left: 7px;
+  height: 54px;
+  display: flex;
+  padding-bottom: 0px;
   position: fixed;
-  bottom: 70px;
+  bottom: 100px;
 }
 #login-button{
  left: 200px;
 }
-#opened-button{
-  left: 200px;
+#tableInformations{
+  
+}
+#leftSlide{
+  color: #fcfafa;
+}
+
+.whitetext{
+  color: #fcfafa;
+}
+
+#code{
+  display: none;
 }
 #closed-button{
   left: 200px;
-}
-img:hover{
-  cursor: pointer;
 }

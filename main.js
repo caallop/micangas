@@ -124,3 +124,24 @@ const template = [
       }
     
 ]
+
+//crud read
+
+ipcMain.on("list-orders", async (event) => {
+  try {
+
+    const order = await orderModel.find();
+    console.log("===================")
+    console.log("===================")
+    console.log("===================")
+    console.log("===================")
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    console.log(order)
+    event.reply("render-orders", JSON.stringify(order));
+  } catch (error) {
+    console.log(error)
+  }
+});

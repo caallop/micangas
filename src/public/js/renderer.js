@@ -40,3 +40,23 @@ function teste() {
 function clientLogin() {
   api.clientLogin()
 }
+
+api.listOrders();
+
+api.renderOrders((event, notes) => {
+  console.log("ta chegando!!")
+  console.log("ta chegando!!")
+  console.log("ta chegando!!")
+  console.log("ta chegando!!")
+  console.log("ta chegando!!")
+  
+  const renderNotes = JSON.parse(notes);
+  arrayNotes = renderNotes;
+  arrayNotes.forEach((n) => {
+    list.innerHTML += `
+      <p id="code">${n._id}</p>
+      <p>${n.nome}</p>
+      <p id="data">${n.data}</p>
+      </li>`;
+  });
+});
