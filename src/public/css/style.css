@@ -42,9 +42,9 @@ button:hover
   width: 500px;
   height: 20px;
   padding-bottom: 20px;
-  padding-left: 150px;
+  padding-left: 280px;
   position: fixed;
-  bottom: 100px;
+  bottom: 70px;
 }
 #login-button{
  left: 200px;
@@ -54,4 +54,7 @@ button:hover
 }
 #closed-button{
   left: 200px;
+}
+img:hover{
+  cursor: pointer;
 }
