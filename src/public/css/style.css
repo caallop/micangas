@@ -2,13 +2,13 @@
 @media (prefers-color-scheme: dark) {
   body {
     color: white;
-    background-color: #71f3a9;
+    background-color: #9defc0;
   }
 }
 
 #rodape {
   align-items: center;
-  background-color: #0e9143;
+  background-color: #6fda99;
   width: 770px;
   margin-left: 7px;
   height: 32px;
@@ -27,8 +27,8 @@ footer p {
   font-size: 1.2em;
 }
 #graphics {
-  background-color: #0e9143;
-  width: 509px;
+  background-color: #6fda99;
+  width: 492px;
   margin-top: 5px;
   right: 7px;
   height: 431px;
@@ -39,8 +39,8 @@ footer p {
 }
 
 #rolage-table {
-  background-color: #0e9143;
-  width: 255px;
+  background-color: #6fda99;
+  width: 275px;
   margin-top: 5px;
   margin-left: 7px;
   height: 431px;
@@ -51,23 +51,32 @@ footer p {
 }
 
 #buttons {
-  background-color: #0e9143;
+  background-color: #6fda99;
   width: 770px;
   margin-left: 7px;
   height: 54px;
   display: flex;
   padding-bottom: 0px;
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
+  padding-left: 40%;
+  border-radius: 15px;
 }
+
+#buttons img{
+padding: 2px 2px 2px 2px;
+}
+
 #login-button{
  left: 200px;
 }
 #tableInformations{
-  
+  padding-left: 150px;
+  font-size: 0.8em;
 }
 #leftSlide{
-  color: #fcfafa;
+  color: #000000;
+  
 }
 
 .whitetext{

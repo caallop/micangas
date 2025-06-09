@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+  <meta charset="UTF-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../public/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
   <div class="grid grid-cols-3 gap-4 justify-items-center" id="buttons">
-    <div class="border-solid justify-center" style=" width: 50px; height: 50px;"  id="login-button" style="border: 1px solid #000;"><img src="../public/img/login.png" alt="" onclick="clientLogin()"></div>
+    <div class="border-solid justify-center" style=" width: 50px; height: 50px;" id="login-button"
+      style="border: 1px solid #000;"><img src="../public/img/login.png" alt="" onclick="clientLogin()"></div>
     <div class="border-solid" style="" id="opened-button " style="border: 1px solid #000;"><button></button></div>
-    <div class="border-solid" style=""  id="closed-button" style="border: 1px solid #000;"><button></button></div>
+    <div class="border-solid" style="" id="closed-button" style="border: 1px solid #000;"><button></button></div>
   </div>
-<div style="border: 1px solid; background-color: black;">
-<h1 class="justify-center">teste 
-  <h1>teste</h1>
-</h1>
-</div>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
+
   <body class="bg-lime-500">
     <div id="rolage-table">
       <table id="leftSlide">
@@ -40,7 +39,7 @@
             <td class="py-1">n.data</td>
             <td class="py-1"> <button> visualizar </button> </td>
           </tr>
-          <tr >
+          <tr>
             <td>João Lima</td>
             <td>2025-06-03</td>
             <td>
@@ -55,32 +54,16 @@
     <div id="graphics"></div>
 
     <footer id="buttons">
-      <img
-        id="login"
-        title="Login de clientes"
-        onclick="clientLogin()"
-        src="../public/img/login.png"
-      />
-      <img
-        id="opened"
-        title="Login de clientes"
-        src="../public/img/login.png"
-      />
-      <img
-        id="closed"
-        title="Login de clientes"
-        src="../public/img/login.png"
-      />
+      <img id="login" title="Login de clientes" onclick="clientLogin()" src="../public/img/login.png" />
+      <img id="opened" title="Login de clientes" src="../public/img/login.png" />
+      <img id="closed" title="Login de clientes" src="../public/img/login.png" />
     </footer>
 
     <footer id="rodape" class="whitetext bg-green-500">
       <p id="dataAtual"></p>
-      <img
-        src="../public/img/dboff.png"
-        alt=" icone do banco de dados"
-        id="iconeDB"
-      />
+      <img src="../public/img/dboff.png" alt=" icone do banco de dados" id="iconeDB" />
     </footer>
     <script src="../public/js/renderer.js"></script>
   </body>
+
 </html>

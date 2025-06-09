@@ -3,6 +3,7 @@ const path = require("node:path");
 
 
 const { conectar, desconectar } = require("./database.js");
+const clientModel = require("./src/models/client.js");
 
 //============================================================
 //===================== janela inicial======================== 
@@ -32,7 +33,10 @@ const createWindow = () => {
 const loginWindow = () => {
     const win = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 570,
+        webPreferences: {
+        preload: path.join(__dirname, "preload.js"),
+      },
     })
 
     win.loadFile('src/views/login.html')
@@ -145,3 +149,56 @@ ipcMain.on("list-orders", async (event) => {
     console.log(error)
   }
 });
+
+//crud read fim
+
+
+//crud creat
+ipcMain.on("cadastrar-cliente", async (event, cadastroCliente) => {
+
+  try {
+    const newClient = clientModel({
+      gmail: cadastroCliente.gmailCli,
+      telefone: cadastroCliente.telCli,
+      cpf: cadastroCliente.cpfCli,
+      nome: cadastroCliente.nomeCli,
+      cep: cadastroCliente.cepCli,
+      bairro: cadastroCliente.bairroCli,
+      numero: cadastroCliente.numCli,
+      complemento: cadastroCliente.compCli,
+      logradouro: cadastroCliente.lograCli,
+    });
+    await newClient.save();
+    //confirmaçao do cliente adicionado ao banco (uso do dialog)
+    dialog
+      .showMessageBox({
+        type: "info",
+        title: "aviso",
+        message: "cliente adicionado com sucesso",
+        buttons: ["OK"],
+      })
+      .then((result) => {
+        if (result.response === 0) {
+          event.reply("reset-form");
+        }
+      });
+  } catch (error) {
+    if (error.code === 11000) {
+      dialog
+        .showMessageBox({
+          type: "error",
+          title: "CPF",
+          message: "CPF já cadastrado",
+          buttons: ["OK"],
+        })
+        .then((result) => {
+          if (result.response === 0) {
+            event.reply("reset-Cpf");
+          }
+        });
+    } else {
+      console.log(error);
+    }
+  }
+});
+//crud create fim
