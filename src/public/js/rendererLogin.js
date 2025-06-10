@@ -11,7 +11,7 @@ let cadComp = document.getElementById("cadComp");
 let cadLogra = document.getElementById("cadLogra");
 let IdCliente = document.getElementById("id");
 
-const foco = document.getElementById("buscarCli");
+const searchField = document.getElementById("buscarCli");
 
 let frmCadastro = document.getElementById("frmCadastro");
 
@@ -123,4 +123,40 @@ function dpsApaga(){
       lograCli: cadLogra.value,
     };
     api.cadastroBanco(cadastroCliente);
+}
+
+
+function searchClient() {
+  console.log(searchField)
+  const temNumero = /\d+/.test(searchField);
+  if (searchField.value === "") {
+    //enviar ao main um pedido para alertar o usuario
+    api.validarBusca();
+  } else {
+    console.log("teste 123213");
+    
+    api.searchCpf(cpfCli);
+    api.renderCpf((event, clientCPF) => {
+      console.log("chegou o cpf do cliente aq no renderer dnv");
+      console.log(clientCPF);
+      const clientDataCPF = JSON.parse(clientCPF.value);
+      arrayClient = clientDataCPF;
+      //uso do laço foreach para percorrer o vetor e extrair os dados
+      arrayClient.forEach((c) => {
+        IdCliente.value = c._id;
+        cadNome.value = c.nome;
+        cadEmail.value = c.gmail;
+        cadTel.value = c.telefone;
+        cadCpf.value = c.cpf;
+        cadSexo.value = c.sexo;
+        cadCep.value = c.cep;
+        cadBairro.value = c.bairro;
+        cadNumb.value = c.numero;
+        cadComp.value = c.complemento;
+        cadUf.value = c.estado;
+        cadCid.value = c.cidade;
+        cadLogra.value = c.logradouro;
+      })
+    })
+  }
 }

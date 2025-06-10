@@ -44,12 +44,6 @@ function clientLogin() {
 api.listOrders();
 
 api.renderOrders((event, notes) => {
-  console.log("ta chegando!!")
-  console.log("ta chegando!!")
-  console.log("ta chegando!!")
-  console.log("ta chegando!!")
-  console.log("ta chegando!!")
-  
   const renderNotes = JSON.parse(notes);
   arrayNotes = renderNotes;
   arrayNotes.forEach((n) => {

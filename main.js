@@ -134,16 +134,7 @@ const template = [
 ipcMain.on("list-orders", async (event) => {
   try {
 
-    const order = await orderModel.find();
-    console.log("===================")
-    console.log("===================")
-    console.log("===================")
-    console.log("===================")
-    console.log(order)
-    console.log(order)
-    console.log(order)
-    console.log(order)
-    console.log(order)
+    const order = await clientModel.find();
     event.reply("render-orders", JSON.stringify(order));
   } catch (error) {
     console.log(error)
@@ -202,3 +193,14 @@ ipcMain.on("cadastrar-cliente", async (event, cadastroCliente) => {
   }
 });
 //crud create fim
+
+
+//crud read
+ipcMain.on("validar-busca", () => {
+  dialog.showMessageBox({
+    type: "warning",
+    title: "Atenção",
+    message: "preencha o campo de busca",
+    buttons: ["OK"],
+  });
+});
