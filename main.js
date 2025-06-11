@@ -26,7 +26,7 @@ const createWindow = () => {
 //============================================================
 
 //============================================================
-
+//============================================================
 
 //============================================================
 //===================== janela de clientes====================
@@ -44,7 +44,11 @@ const loginWindow = () => {
 //===================== janela de clientes====================
 //============================================================
 
+//============================================================
+//===================== janela sobre==========================
 
+//===================== janela sobre==========================
+//============================================================
 
 
 app.whenReady().then(() => {
@@ -243,18 +247,18 @@ ipcMain.on("search-cpf", async (event, searchField) => {
 //crud read cpf----------
 //crud read nome----------
 
-ipcMain.on("search-name", async (event, nomeCli) => {
+ipcMain.on("search-name", async (event, searchField) => {
   //teste do recebimento entre arquivos
-  console.log(nomeCli);
+  console.log(searchField);
   try {
-    const client = await clientModel.find({
+    const clientName = await clientModel.find({
       //RegExp (expressão regular ''i' -> insensitive (ignorar letras maisculas e minusculas))
-      nome: new RegExp(nomeCli, "i"),
+      nome: new RegExp(searchField, "i"),
     });
-    console.log(client);
+    console.log(clientName);
     //melhoriar da experiencia do usuaario (se nao existir um cliente cadastrado enviar uma mensagem ao usuario questionando se ele deseja cadastrar um novo cliente)
     //se o vetor esiver vazio (lenght) fala o tamanho do vetor
-    if (client.length === 0) {
+    if (clientName.length === 0) {
       //questionar o usuario...
       dialog
         .showMessageBox({
@@ -275,7 +279,7 @@ ipcMain.on("search-name", async (event, nomeCli) => {
         });
     } else {
       //Mandar para os clientes para o renderClientes
-      event.reply("render-client", JSON.stringify(client));
+      event.reply("render-client", JSON.stringify(clientName));
     }
   } catch (error) {
     console.log(error);

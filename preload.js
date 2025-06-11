@@ -15,6 +15,7 @@ contextBridge.exposeInMainWorld("api", {
     setCpf:(args) => ipcRenderer.on('set-cpf', args),
 
     searchName: (searchField) => ipcRenderer.send('search-name', searchField),
+    renderClient: (clientName) => ipcRenderer.on('render-client', clientName),
 
     listOrders: () => ipcRenderer.send("list-orders"),
     renderOrders: (order) => ipcRenderer.on("render-orders", order),

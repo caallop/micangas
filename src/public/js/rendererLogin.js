@@ -156,7 +156,7 @@ function searchClient() {
       })
     })
   } else {
-    api.searchName(searchField);
+    api.searchName(searchField.value);
     api.renderClient((event, client) => {
       console.log("teste");
       console.log(client);
@@ -168,16 +168,13 @@ function searchClient() {
       arrayClient.forEach((c) => {
         IdCliente.value = c._id;
         cadNome.value = c.nome;
-        cadEmail.value = c.gmail;
+        cadInsta.value = c.gmail;
         cadTel.value = c.telefone;
         cadCpf.value = c.cpf;
-        cadSexo.value = c.sexo;
         cadCep.value = c.cep;
         cadBairro.value = c.bairro;
         cadNumb.value = c.numero;
         cadComp.value = c.complemento;
-        cadUf.value = c.estado;
-        cadCid.value = c.cidade;
         cadLogra.value = c.logradouro;
       })
     })
