@@ -22,11 +22,11 @@ let arrayClient = [];
 
 function buscarEndereco() {
   let cep = document.getElementById("cadCep").value
-console.log(cep)
-console.log(cep)
-console.log(cep)
-console.log(cep)
-console.log(cep)
+  console.log(cep)
+  console.log(cep)
+  console.log(cep)
+  console.log(cep)
+  console.log(cep)
 
   let urlAPI = `https://viacep.com.br/ws/${cep}/json/`;
   fetch(urlAPI)
@@ -91,56 +91,79 @@ function testaCPF() {
   }
 }
 
+api.setCpf((args) => {
+  console.log(
+    "meu deus meu senhor me ajdua por favor é no trabalaho na esocla ou faukdad"
+  );
+  // "recortar" o nome da busca e salovar e setar o nome do form
+  let busca = document.getElementById("buscarCli").value;
+  //focar no campo nome
+  cadCpf.focus();
+  console.log(busca);
+  let valorBusca = searchField.value;
+  console.log(valorBusca);
+  //copiar o nome do cliente para o campo nome
+  cadCpf.value = searchField.value;
+  console.log(valorBusca);
+  //limpar o campo de busca
+
+  searchField.value = "";
+});
 
 
 frmCadastro.addEventListener("submit", async (event) => {
   event.preventDefault();
-    const cadastroCliente = {
-      gmailCli: cadInsta.value,
-      telCli: cadTel.value,
-      cpfCli: cadCpf.value,
-      nomeCli: cadNome.value,
-      cepCli: cadCep.value,
-      bairroCli: cadBairro.value,
-      numCli: cadNumb.value,
-      compCli: cadComp.value,
-      lograCli: cadLogra.value,
-    };
-    api.cadastroBanco(cadastroCliente);
+  const cadastroCliente = {
+    gmailCli: cadInsta.value,
+    telCli: cadTel.value,
+    cpfCli: cadCpf.value,
+    nomeCli: cadNome.value,
+    cepCli: cadCep.value,
+    bairroCli: cadBairro.value,
+    numCli: cadNumb.value,
+    compCli: cadComp.value,
+    lograCli: cadLogra.value,
+  };
+  api.cadastroBanco(cadastroCliente);
 });
-
-function dpsApaga(){
- event.preventDefault();
-    const cadastroCliente = {
-      gmailCli: cadInsta.value,
-      telCli: cadTel.value,
-      cpfCli: cadCpf.value,
-      nomeCli: cadNome.value,
-      cepCli: cadCep.value,
-      bairroCli: cadBairro.value,
-      numCli: cadNumb.value,
-      compCli: cadComp.value,
-      lograCli: cadLogra.value,
-    };
-    api.cadastroBanco(cadastroCliente);
-}
-
 
 function searchClient() {
   console.log(searchField)
-  const temNumero = /\d+/.test(searchField);
+  const temNumero = /\d+/.test(searchField.value);
+  console.log(temNumero)
   if (searchField.value === "") {
     //enviar ao main um pedido para alertar o usuario
     api.validarBusca();
+  } else if (temNumero === true) {
+    api.searchCpf(searchField.value);
+
+    api.renderCpf((event, clientData) => {
+
+      const clientDatas = JSON.parse(clientData);
+      arrayClient = clientDatas;
+      //uso do laço foreach para percorrer o vetor e extrair os dados
+      arrayClient.forEach((c) => {
+        IdCliente.value = c._id;
+        cadNome.value = c.nome;
+        cadInsta.value = c.gmail;
+        cadTel.value = c.telefone;
+        cadCpf.value = c.cpf;
+        cadCep.value = c.cep;
+        cadBairro.value = c.bairro;
+        cadNumb.value = c.numero;
+        cadComp.value = c.complemento;  
+        cadLogra.value = c.logradouro
+      })
+    })
   } else {
-    console.log("teste 123213");
-    
-    api.searchCpf(cpfCli);
-    api.renderCpf((event, clientCPF) => {
-      console.log("chegou o cpf do cliente aq no renderer dnv");
-      console.log(clientCPF);
-      const clientDataCPF = JSON.parse(clientCPF.value);
-      arrayClient = clientDataCPF;
+    api.searchName(searchField);
+    api.renderClient((event, client) => {
+      console.log("teste");
+      console.log(client);
+
+      //passo 6- cobverter os dados de string para json. renderizaçao dos dados para o html
+      const clientData = JSON.parse(client);
+      arrayClient = clientData;
       //uso do laço foreach para percorrer o vetor e extrair os dados
       arrayClient.forEach((c) => {
         IdCliente.value = c._id;
