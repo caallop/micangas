@@ -46,10 +46,28 @@ const loginWindow = () => {
 
 //============================================================
 //===================== janela sobre==========================
+let about;
+function aboutWindows() {
+  nativeTheme.themeSource = "system";
+  const mainwindow = BrowserWindow.getFocusedWindow();
+  if (mainwindow) {
+    about = new BrowserWindow({
+      width: 500,
+      height: 320,
+      autoHideMenuBar: true,
+      resizable: false,
+      minimizable: false,
+      //estabelcer uma relaçao hieraquica entre janelas
+      parent: mainwindow,
+      modal: true,
+    });
+    about.loadFile("./src/views/sobre.html");
+  }
+}
+
 
 //===================== janela sobre==========================
 //============================================================
-
 
 app.whenReady().then(() => {
   createWindow()
@@ -59,6 +77,11 @@ app.whenReady().then(() => {
       event.reply("db-status", "conectado");
     }, 500); //500ms = 0.5 seg
   });
+
+  
+app.on("before-quit", async () => {
+  await desconectar();
+});
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
@@ -129,7 +152,21 @@ const template = [
             role: "reload",
           },
         ],
-      }
+      },
+      {
+        label: "Ajuda",
+        submenu: [
+          {
+            label: "repositorio",
+            click: () =>
+              shell.openExternal("https://github.com/caallop/micangas"),
+          },
+          {
+            label: "sobre",
+            click: () => aboutWindows(),
+          },
+        ],
+      },
     
 ]
 

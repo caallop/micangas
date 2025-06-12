@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "Inter";
+  src: url(../css/Inter/Inter-Italic-VariableFont_opsz\wght.ttf);
+}
+
+* {
+  font-family: "Inter";
+  background-color: #9defc0;
+}
+
+hr {
+  margin-top: -20px;
+  background-color: black;
+}
+
+h1,h2,h3,h4,h4, h5, p{
+ background-color: #6fda99;
+ padding: 3px;
+}
